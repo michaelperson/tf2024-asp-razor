@@ -11,7 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Asp.DAL\Asp.DAL.csproj" />
     <ProjectReference Include="..\AspInterfaces\AspInterfaces.csproj" />
     <ProjectReference Include="..\tf2024-asp-razor.entities\tf2024-asp-razor.entities.csproj" />
   </ItemGroup>

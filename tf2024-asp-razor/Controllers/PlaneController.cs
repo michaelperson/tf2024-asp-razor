@@ -8,7 +8,7 @@ using tf2024_asp_razor.Models.Plane;
 
 namespace tf2024_asp_razor.Controllers;
 
-public class PlaneController(ILogger<PlaneController> logger ,PlaneService ps) : Controller
+public class PlaneController(ILogger<PlaneController> logger ,IPlaneService ps) : Controller
 {
    
 
