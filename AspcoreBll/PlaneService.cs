@@ -14,10 +14,10 @@ namespace AspcoreBll
     {
         private readonly IDataContext _context;
 
-        //public PlaneService(IDataContext context)
-        //{
-        //    this._context = context;
-        //}
+        public PlaneService(IDataContext context)
+        {
+            this._context = context;
+        }
 
         public bool Delete(int Id)
         {

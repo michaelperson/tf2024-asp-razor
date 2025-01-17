@@ -18,6 +18,7 @@ builder.Services.AddScoped<IDataContext,DataContext>( s=> {
     return new DataContext(options);
 }
     );
+
 builder.Services.AddScoped<IPlaneService, PlaneService>();
 var app = builder.Build();
 
