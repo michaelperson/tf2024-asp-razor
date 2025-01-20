@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using tf2024_asp_razor.entities.Interfaces;
 
 namespace tf2024_asp_razor.Models.Entities.Taxable;
 
-public class MaintenanceEntity
+public class MaintenanceEntity : IEntity
 {
     [Key] public long Id { get; set; }
 

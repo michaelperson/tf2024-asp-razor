@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using tf2024_asp_razor.entities.Interfaces;
 using tf2024_asp_razor.Models.Entities.Taxable;
 
 namespace tf2024_asp_razor.Models.Entities;
 
-public class PlaneTypeEntity
+public class PlaneTypeEntity : IEntity
 {
     [Key] public int Id { get; set; }
 

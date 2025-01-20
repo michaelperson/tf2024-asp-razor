@@ -1,5 +1,6 @@
 ﻿using AspInterfaces;
 using Microsoft.EntityFrameworkCore;
+using tf2024_asp_razor.entities.Interfaces;
 using tf2024_asp_razor.fluent;
 using tf2024_asp_razor.Models.Entities;
 using tf2024_asp_razor.Models.Entities.Taxable;
@@ -29,7 +30,8 @@ public class DataContext : DbContext, IDataContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         //A changer plus tard - workaround
-        optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ef-aeroport;Persist Security Info=True;Integrated Security=True;Encrypt=True;Trust Server Certificate=True");
+        //optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ef-aeroport;Persist Security Info=True;Integrated Security=True;Encrypt=True;Trust Server Certificate=True");
+        //Remplacé par le DesignTimeDbContextFactory
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -41,5 +43,10 @@ public class DataContext : DbContext, IDataContext
         modelBuilder.ApplyConfiguration(new PlaneConfiguration());
         modelBuilder.ApplyConfiguration(new MaintenanceConfiguration());
         modelBuilder.ApplyConfiguration(new FlightConfiguration());
+    }
+
+    IQueryable<T> IDataContext.Set<T>()
+    {
+       return base.Set<T>();
     }
 }

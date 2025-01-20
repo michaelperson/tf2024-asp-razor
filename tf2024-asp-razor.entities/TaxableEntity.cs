@@ -1,6 +1,8 @@
-﻿namespace tf2024_asp_razor.Models.Entities;
+﻿using tf2024_asp_razor.entities.Interfaces;
 
-public class TaxableEntity
+namespace tf2024_asp_razor.Models.Entities;
+
+public class TaxableEntity : IEntity
 {
     public int Id { get; set; }
     public string Name { get; set; }

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using tf2024_asp_razor.Database;
+using tf2024_asp_razor.entities.Interfaces;
 using tf2024_asp_razor.Models.Entities;
 using tf2024_asp_razor.Models.Entities.Taxable;
 using tf2024_asp_razor.Models.Plane;
@@ -16,14 +17,14 @@ public class PlaneController(ILogger<PlaneController> logger ,IPlaneService ps) 
     [Route("/Plane/List")]
     public IActionResult Index()
     {
-        return View(new PlaneListVM(ps.GetAll()));
+        return View(new PlaneListVM(ps.GetAll(p=>(p as PlaneEntity).Type, T=>(T as PlaneEntity).Owner)));
     }
 
     public IActionResult Create()
     {
         var model = new PlaneCreateVM();
         model.Form = new FPlaneCreate();
-        //model.Persons = new  db.Taxables;
+        //model.Persons = new db.Taxables;
         //model.Types = db.Types;
 
         return View(model);

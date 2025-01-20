@@ -16,5 +16,7 @@ namespace AspInterfaces
         DbSet<PlaneTypeEntity> Types { get; set; }
 
         int SaveChanges();
+        IQueryable<T> Set<T>()
+            where T:class;
     }
 }
